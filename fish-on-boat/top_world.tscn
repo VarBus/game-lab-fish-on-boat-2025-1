@@ -14,3 +14,4 @@ position = Vector2(571, 301)
 shape = SubResource("RectangleShape2D_pcire")
 
 [node name="Jacinto" parent="." instance=ExtResource("1_i0x0u")]
+position = Vector2(567, 249)
