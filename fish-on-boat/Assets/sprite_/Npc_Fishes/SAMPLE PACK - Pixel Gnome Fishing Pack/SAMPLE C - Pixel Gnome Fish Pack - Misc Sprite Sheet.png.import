@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0komh3ucmvus"
-path="res://.godot/imported/Jacinto_prototipo_1.png-ab912ce6a754b2b053ae068494fbddfa.ctex"
+uid="uid://booylkyynxb5x"
+path="res://.godot/imported/SAMPLE C - Pixel Gnome Fish Pack - Misc Sprite Sheet.png-a285a73d7e8e6cd51243c68c972accdf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprite_/Jacinto_prototipo_1.png"
-dest_files=["res://.godot/imported/Jacinto_prototipo_1.png-ab912ce6a754b2b053ae068494fbddfa.ctex"]
+source_file="res://Assets/sprite_/Npc_Fishes/SAMPLE PACK - Pixel Gnome Fishing Pack/SAMPLE C - Pixel Gnome Fish Pack - Misc Sprite Sheet.png"
+dest_files=["res://.godot/imported/SAMPLE C - Pixel Gnome Fish Pack - Misc Sprite Sheet.png-a285a73d7e8e6cd51243c68c972accdf.ctex"]
 
 [params]
 
