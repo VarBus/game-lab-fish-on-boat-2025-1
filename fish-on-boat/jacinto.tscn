@@ -7,7 +7,7 @@
 radius = 17.0
 height = 58.0
 
-[node name="Jacinto" type="CharacterBody2D"]
+[node name="Jacinto" type="CharacterBody2D" groups=["Jacinto"]]
 script = ExtResource("1_sqtdw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
