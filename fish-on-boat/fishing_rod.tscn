@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvqtwxdhu60fa"]
+
+[ext_resource type="Script" uid="uid://brsnpx28xc2gn" path="res://fishing_rod.gd" id="1_x0c03"]
+[ext_resource type="Texture2D" uid="uid://dllscdhqa0khj" path="res://items/fishing_rod_.png" id="2_1tjrd"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uokpy"]
+
+[node name="FishingRod" type="Area2D" groups=["fishing"]]
+script = ExtResource("1_x0c03")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_1tjrd")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_uokpy")
+
+[node name="Rope" type="Line2D" parent="."]
+points = PackedVector2Array(-13, 11)
+width = 5.0
+default_color = Color(0, 0, 0, 1)
