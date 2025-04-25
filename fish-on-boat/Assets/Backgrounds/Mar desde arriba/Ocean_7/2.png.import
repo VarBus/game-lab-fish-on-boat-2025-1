@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0komh3ucmvus"
-path="res://.godot/imported/Jacinto_prototipo_1.png-ab912ce6a754b2b053ae068494fbddfa.ctex"
+uid="uid://b02e2iun5jjvw"
+path="res://.godot/imported/2.png-07c74e73fbc1bef0e204d8f3da6fb05b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprite_/Jacinto_prototipo_1.png"
-dest_files=["res://.godot/imported/Jacinto_prototipo_1.png-ab912ce6a754b2b053ae068494fbddfa.ctex"]
+source_file="res://Assets/Backgrounds/Mar desde arriba/Ocean_7/2.png"
+dest_files=["res://.godot/imported/2.png-07c74e73fbc1bef0e204d8f3da6fb05b.ctex"]
 
 [params]
 
