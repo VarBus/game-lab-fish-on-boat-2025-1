@@ -1,15 +1,8 @@
-<<<<<<< HEAD
-[gd_scene load_steps=5 format=3 uid="uid://c3h4ac87hta8b"]
+[gd_scene load_steps=5 format=3 uid="uid://b6377mc4hymmv"]
 
-[ext_resource type="Script" uid="uid://44cd16w1o3up" path="res://jacinto.gd" id="1_sqtdw"]
-[ext_resource type="Texture2D" uid="uid://0komh3ucmvus" path="res://sprite_/Jacinto_prototipo_1.png" id="2_mr5iv"]
+[ext_resource type="Script" path="res://jacinto.gd" id="1_sqtdw"]
+[ext_resource type="Texture2D" path="res://sprite_/Jacinto_prototipo_1.png" id="2_mr5iv"]
 [ext_resource type="PackedScene" uid="uid://dpt6y8vhin2y3" path="res://inventory.tscn" id="3_mr5iv"]
-=======
-[gd_scene load_steps=4 format=3 uid="uid://c7okfdpy6rlay"]
-
-[ext_resource type="Script" uid="uid://44cd16w1o3up" path="res://Assets/Scripts/jacinto.gd" id="1_sqtdw"]
-[ext_resource type="Texture2D" uid="uid://0komh3ucmvus" path="res://Assets/sprite_/P_Jacinto/Jacinto_prototipo_1.png" id="2_mr5iv"]
->>>>>>> origin/ZtanQ_Develop
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_if22a"]
 radius = 17.0
@@ -28,14 +21,10 @@ position = Vector2(1, 10)
 shape = SubResource("CapsuleShape2D_if22a")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-<<<<<<< HEAD
 limit_left = -10000
 limit_top = -10000
 limit_right = 10000
 limit_bottom = 10000
-=======
-enabled = false
->>>>>>> origin/ZtanQ_Develop
 position_smoothing_enabled = true
 
 [node name="slide_timer" type="Timer" parent="."]

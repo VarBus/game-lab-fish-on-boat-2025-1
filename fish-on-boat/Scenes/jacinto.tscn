@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://c3h4ac87hta8b"]
+[gd_scene load_steps=4 format=3 uid="uid://cmijj8vhla04s"]
 
 [ext_resource type="Script" uid="uid://44cd16w1o3up" path="res://Assets/Scripts/jacinto.gd" id="1_sqtdw"]
 [ext_resource type="Texture2D" uid="uid://0komh3ucmvus" path="res://Assets/sprite_/P_Jacinto/Jacinto_prototipo_1.png" id="2_mr5iv"]

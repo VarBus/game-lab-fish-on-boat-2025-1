@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dtyv05vp8pcxf"
-path="res://.godot/imported/boat-.png-c030a9853e5ce207d1c66a9c14562b17.ctex"
+path="res://.godot/imported/boat-.png-05a4378cc0c4efbf5144ddc89894d9d5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprite_/boat-.png"
-dest_files=["res://.godot/imported/boat-.png-c030a9853e5ce207d1c66a9c14562b17.ctex"]
+source_file="res://Assets/sprite_/P_Jacinto/boat-.png"
+dest_files=["res://.godot/imported/boat-.png-05a4378cc0c4efbf5144ddc89894d9d5.ctex"]
 
 [params]
 
