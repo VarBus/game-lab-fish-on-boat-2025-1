@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c6vqp1s0fdv33"]
 
-[ext_resource type="PackedScene" uid="uid://c7okfdpy6rlay" path="res://jacinto.tscn" id="1_xok6y"]
+[ext_resource type="PackedScene" uid="uid://c7okfdpy6rlay" path="res://Scenes/jacinto.tscn" id="1_xok6y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pcire"]
 size = Vector2(1162, 20)
