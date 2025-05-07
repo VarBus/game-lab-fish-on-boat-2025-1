@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6377mc4hymmv"]
+
+[ext_resource type="Script" path="res://jacinto.gd" id="1_sqtdw"]
+[ext_resource type="Texture2D" path="res://sprite_/Jacinto_prototipo_1.png" id="2_mr5iv"]
+[ext_resource type="PackedScene" uid="uid://dpt6y8vhin2y3" path="res://inventory.tscn" id="3_mr5iv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_if22a"]
+radius = 17.0
+height = 58.0
+
+[node name="Jacinto" type="CharacterBody2D" groups=["Jacinto"]]
+script = ExtResource("1_sqtdw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("2_mr5iv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 10)
+shape = SubResource("CapsuleShape2D_if22a")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = -10000
+limit_top = -10000
+limit_right = 10000
+limit_bottom = 10000
+position_smoothing_enabled = true
+
+[node name="slide_timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="HandSlot" type="Marker2D" parent="."]
+position = Vector2(-19, 23)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Inventory" parent="UI" instance=ExtResource("3_mr5iv")]
+position = Vector2(579, 215)
+
+[connection signal="timeout" from="slide_timer" to="." method="_on_slide_timer_timeout"]

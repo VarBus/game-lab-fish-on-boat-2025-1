@@ -9,15 +9,14 @@ var super_speed = 2.5
 var sliding = false
 var last_direction = 1 
 var slide_direction = 0
-#@onready var inventory: Node2D = $UI/Inventory
+@onready var inventory: Node2D = $UI/Inventory
 @onready var slide_timer: Timer = $slide_timer
 var controlling_boat = false
-#@onready var hand_slot: Marker2D = $HandSlot
+@onready var hand_slot: Marker2D = $HandSlot
 @onready var camera_2d: Camera2D = $Camera2D
 
 func _ready() -> void:
-	pass;
-	#inventory.connect("give_item_to_jacinto", Callable(self, "_receive_item"))
+	inventory.connect("give_item_to_jacinto", Callable(self, "_receive_item"))
 
 func _physics_process(delta: float) -> void:
 	if controlling_boat:
@@ -52,12 +51,12 @@ func _on_slide_timer_timeout() -> void:
 	sliding = false
 
 func _receive_item(item_instance):
-	#for child in hand_slot.get_children():
-		#child.queue_free()
+	for child in hand_slot.get_children():
+		child.queue_free()
 	
 	item_instance.position = Vector2.ZERO
 	item_instance.visible = true
-	#hand_slot.add_child(item_instance)
+	hand_slot.add_child(item_instance)
 
 	# Si el ítem es FishingRod, le pasamos la referencia de Jacinto
 	if item_instance.has_method("connect_to_jacinto"):
