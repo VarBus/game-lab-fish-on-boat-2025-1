@@ -1,0 +1,78 @@
+[gd_scene load_steps=9 format=3 uid="uid://b6377mc4hymmv"]
+
+[ext_resource type="Script" uid="uid://44cd16w1o3up" path="res://Assets/Scripts/jacinto.gd" id="1_sqtdw"]
+[ext_resource type="Texture2D" uid="uid://qv32awc30sb4" path="res://Assets/Sprites/P_Jacinto/Jacinto_Idle.png" id="2_7vevy"]
+[ext_resource type="PackedScene" uid="uid://dpt6y8vhin2y3" path="res://Scenes/Player/inventory.tscn" id="3_mr5iv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ucrs"]
+atlas = ExtResource("2_7vevy")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n6nya"]
+atlas = ExtResource("2_7vevy")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4k1s"]
+atlas = ExtResource("2_7vevy")
+region = Rect2(100, 0, 50, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dsu3j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ucrs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n6nya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4k1s")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_if22a"]
+radius = 16.0
+height = 48.0
+
+[node name="Jacinto" type="CharacterBody2D" groups=["Jacinto"]]
+script = ExtResource("1_sqtdw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(19.5, 15.5)
+scale = Vector2(2, 1.82)
+sprite_frames = SubResource("SpriteFrames_dsu3j")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(40, 8)
+shape = SubResource("CapsuleShape2D_if22a")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = -10000
+limit_top = -10000
+limit_right = 10000
+limit_bottom = 10000
+position_smoothing_enabled = true
+
+[node name="slide_timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="HandSlot" type="Marker2D" parent="."]
+position = Vector2(-19, 23)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Inventory" parent="UI" instance=ExtResource("3_mr5iv")]
+position = Vector2(579, 215)
+
+[connection signal="timeout" from="slide_timer" to="." method="_on_slide_timer_timeout"]

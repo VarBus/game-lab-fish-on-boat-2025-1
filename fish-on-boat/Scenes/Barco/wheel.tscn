@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://6u7xthmh6sre"]
+
+[ext_resource type="Texture2D" uid="uid://3xhqn2xqb44x" path="res://Assets/sprite_/P_Jacinto/wheel-.png" id="1_8m8ww"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e0ure"]
+radius = 15.0
+
+[node name="Wheel" type="Area2D" groups=["wheel"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_8m8ww")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+texture_filter = 1
+shape = SubResource("CircleShape2D_e0ure")

@@ -9,6 +9,7 @@ var super_speed = 2.5
 var sliding = false
 var last_direction = 1 
 var slide_direction = 0
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var inventory: Node2D = $UI/Inventory
 @onready var slide_timer: Timer = $slide_timer
 var controlling_boat = false
@@ -27,10 +28,10 @@ func _physics_process(delta: float) -> void:
 	if not sliding:
 		if Input.is_action_pressed("right"):
 			direction.x += 1
-			$Sprite2D.flip_h = true
+			animated_sprite_2d.flip_h = true
 		if Input.is_action_pressed("left"):
 			direction.x -= 1
-			$Sprite2D.flip_h = false
+			animated_sprite_2d.flip_h = false
 		if direction.x != 0:
 			last_direction = direction.x
 		if Input.is_action_pressed("shift") and is_on_floor():
