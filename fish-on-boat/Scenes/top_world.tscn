@@ -1,11 +1,26 @@
+<<<<<<< HEAD:fish-on-boat/Scenes/top_world.tscn
 [gd_scene load_steps=3 format=3 uid="uid://c6vqp1s0fdv33"]
 
 [ext_resource type="PackedScene" uid="uid://c7okfdpy6rlay" path="res://jacinto.tscn" id="1_xok6y"]
+=======
+[gd_scene load_steps=5 format=3 uid="uid://bq2sfkkmkrsgn"]
+
+[ext_resource type="PackedScene" uid="uid://c3h4ac87hta8b" path="res://jacinto.tscn" id="1_i0x0u"]
+[ext_resource type="Texture2D" uid="uid://cvvjejks5brsk" path="res://bg/day_bg.png" id="1_mjrtw"]
+[ext_resource type="PackedScene" uid="uid://krwp4m8llfa3" path="res://jacinto_boat_.tscn" id="2_pcire"]
+>>>>>>> a47d194 (fead: add boat movement):fish-on-boat/top_world.tscn
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pcire"]
 size = Vector2(1162, 20)
 
 [node name="Top-world" type="Node2D"]
+
+[node name="bg" type="TextureRect" parent="."]
+offset_left = -7.0
+offset_top = -155.0
+offset_right = 1150.0
+offset_bottom = 293.0
+texture = ExtResource("1_mjrtw")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -13,5 +28,13 @@ size = Vector2(1162, 20)
 position = Vector2(571, 301)
 shape = SubResource("RectangleShape2D_pcire")
 
+<<<<<<< HEAD:fish-on-boat/Scenes/top_world.tscn
 [node name="Jacinto" parent="." instance=ExtResource("1_xok6y")]
 position = Vector2(568, 241)
+=======
+[node name="Jacinto" parent="." instance=ExtResource("1_i0x0u")]
+position = Vector2(643, -59)
+
+[node name="Jacinto_boat_" parent="." instance=ExtResource("2_pcire")]
+position = Vector2(81, -216)
+>>>>>>> a47d194 (fead: add boat movement):fish-on-boat/top_world.tscn
