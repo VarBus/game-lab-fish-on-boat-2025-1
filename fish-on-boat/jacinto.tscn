@@ -1,7 +1,15 @@
+<<<<<<< HEAD
 [gd_scene load_steps=4 format=3 uid="uid://c7okfdpy6rlay"]
 
 [ext_resource type="Script" uid="uid://44cd16w1o3up" path="res://Assets/Scripts/jacinto.gd" id="1_sqtdw"]
 [ext_resource type="Texture2D" uid="uid://0komh3ucmvus" path="res://Assets/sprite_/P_Jacinto/Jacinto_prototipo_1.png" id="2_mr5iv"]
+=======
+[gd_scene load_steps=5 format=3 uid="uid://c3h4ac87hta8b"]
+
+[ext_resource type="Script" uid="uid://44cd16w1o3up" path="res://jacinto.gd" id="1_sqtdw"]
+[ext_resource type="Texture2D" uid="uid://0komh3ucmvus" path="res://sprite_/Jacinto_prototipo_1.png" id="2_mr5iv"]
+[ext_resource type="PackedScene" uid="uid://dpt6y8vhin2y3" path="res://inventory.tscn" id="3_mr5iv"]
+>>>>>>> 5bbfa28 (fead: add rod mechanics)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_if22a"]
 radius = 17.0
@@ -20,9 +28,25 @@ position = Vector2(1, 10)
 shape = SubResource("CapsuleShape2D_if22a")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+<<<<<<< HEAD
 enabled = false
+=======
+limit_left = -10000
+limit_top = -10000
+limit_right = 10000
+limit_bottom = 10000
+>>>>>>> 5bbfa28 (fead: add rod mechanics)
 position_smoothing_enabled = true
 
 [node name="slide_timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="HandSlot" type="Marker2D" parent="."]
+position = Vector2(-19, 23)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Inventory" parent="UI" instance=ExtResource("3_mr5iv")]
+position = Vector2(579, 215)
 
 [connection signal="timeout" from="slide_timer" to="." method="_on_slide_timer_timeout"]
