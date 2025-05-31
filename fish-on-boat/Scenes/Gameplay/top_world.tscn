@@ -1,11 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://cntvrsrs2eq6t"]
+[gd_scene load_steps=6 format=3 uid="uid://cntvrsrs2eq6t"]
 
-[ext_resource type="Texture2D" uid="uid://cvvjejks5brsk" path="res://Assets/Backgrounds/bg/day_bg.png" id="1_unyb1"]
+[ext_resource type="Texture2D" uid="uid://cvvjejks5brsk" path="res://bg/day_bg.png" id="1_unyb1"]
 [ext_resource type="PackedScene" uid="uid://b6377mc4hymmv" path="res://Scenes/Player/jacinto.tscn" id="2_vfmnr"]
-[ext_resource type="PackedScene" uid="uid://krwp4m8llfa3" path="res://Scenes/Player/jacinto_boat_.tscn" id="3_dm1iy"]
+[ext_resource type="PackedScene" uid="uid://krwp4m8llfa3" path="res://jacinto_boat_.tscn" id="3_dm1iy"]
+[ext_resource type="PackedScene" uid="uid://bon35srfwcqgk" path="res://water_2d.tscn" id="4_ixner"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pcire"]
-size = Vector2(1162, 20)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ixner"]
+size = Vector2(468, 20)
 
 [node name="Top-world" type="Node2D"]
 
@@ -16,15 +17,18 @@ offset_right = 1150.0
 offset_bottom = 293.0
 texture = ExtResource("1_unyb1")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(571, 301)
-shape = SubResource("RectangleShape2D_pcire")
-
 [node name="Jacinto" parent="." instance=ExtResource("2_vfmnr")]
 position = Vector2(643, -59)
 
 [node name="Jacinto_boat_" parent="." instance=ExtResource("3_dm1iy")]
 texture_filter = 1
 position = Vector2(81, -216)
+
+[node name="Water2D" parent="." instance=ExtResource("4_ixner")]
+position = Vector2(-3, 251)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(654, 292)
+shape = SubResource("RectangleShape2D_ixner")

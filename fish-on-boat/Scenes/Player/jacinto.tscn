@@ -1,32 +1,32 @@
 [gd_scene load_steps=9 format=3 uid="uid://b6377mc4hymmv"]
 
 [ext_resource type="Script" uid="uid://44cd16w1o3up" path="res://Assets/Scripts/jacinto.gd" id="1_sqtdw"]
-[ext_resource type="Texture2D" uid="uid://qv32awc30sb4" path="res://Assets/Sprites/P_Jacinto/Jacinto_Idle.png" id="2_7vevy"]
-[ext_resource type="PackedScene" uid="uid://dpt6y8vhin2y3" path="res://Scenes/Player/inventory.tscn" id="3_mr5iv"]
+[ext_resource type="Texture2D" uid="uid://b8bfuqluqk588" path="res://Assets/Sprites/P_Jacinto/Jacinto_Idle.png" id="2_7vevy"]
+[ext_resource type="PackedScene" uid="uid://dpt6y8vhin2y3" path="res://inventory.tscn" id="3_mr5iv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vevy"]
+atlas = ExtResource("2_7vevy")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0ucrs"]
 atlas = ExtResource("2_7vevy")
-region = Rect2(0, 0, 50, 50)
+region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n6nya"]
 atlas = ExtResource("2_7vevy")
-region = Rect2(50, 0, 50, 50)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_a4k1s"]
-atlas = ExtResource("2_7vevy")
-region = Rect2(100, 0, 50, 50)
+region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dsu3j"]
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_7vevy")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_0ucrs")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_n6nya")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_a4k1s")
 }],
 "loop": true,
 "name": &"idle",
@@ -52,9 +52,10 @@ scale = Vector2(2, 1.82)
 sprite_frames = SubResource("SpriteFrames_dsu3j")
 animation = &"idle"
 autoplay = "idle"
+frame_progress = 0.761376
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(40, 8)
+position = Vector2(18, 19)
 shape = SubResource("CapsuleShape2D_if22a")
 
 [node name="Camera2D" type="Camera2D" parent="."]

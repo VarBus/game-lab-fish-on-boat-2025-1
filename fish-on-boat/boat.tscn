@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://2jghi522qbop"]
 
-[ext_resource type="Texture2D" uid="uid://dtyv05vp8pcxf" path="res://Assets/sprite_/P_Jacinto/boat-.png" id="1_annr2"]
+[ext_resource type="Texture2D" path="res://Assets/sprite_/P_Jacinto/boat-.png" id="1_annr2"]
 
 [node name="Boat" type="RigidBody2D"]
 mass = 0.1

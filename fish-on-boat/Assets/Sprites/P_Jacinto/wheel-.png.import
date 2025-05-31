@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://3xhqn2xqb44x"
-path="res://.godot/imported/wheel-.png-ea1c76b0ae5a5194485eb21e5a3ab4eb.ctex"
+path="res://.godot/imported/wheel-.png-f178060e2371f4968d848e8cdd90486a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sprite_/P_Jacinto/wheel-.png"
-dest_files=["res://.godot/imported/wheel-.png-ea1c76b0ae5a5194485eb21e5a3ab4eb.ctex"]
+source_file="res://Assets/Sprites/P_Jacinto/wheel-.png"
+dest_files=["res://.godot/imported/wheel-.png-f178060e2371f4968d848e8cdd90486a.ctex"]
 
 [params]
 

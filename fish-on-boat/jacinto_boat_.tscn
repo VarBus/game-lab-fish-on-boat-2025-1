@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://6u7xthmh6sre" path="res://wheel.tscn" id="2_2m212"]
 [ext_resource type="Script" uid="uid://b51t1b0r8sox8" path="res://boat.gd" id="2_sab4x"]
 
-[node name="Jacinto_boat_" type="Node2D"]
+[node name="Jacinto_boat_" type="Node2D" groups=["Jacinto_boat"]]
 
 [node name="Boat" parent="." instance=ExtResource("1_n0hwr")]
 position = Vector2(595, 317)
