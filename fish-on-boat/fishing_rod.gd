@@ -19,10 +19,8 @@ func _ready():
 	rope.visible = false
 	rope.clear_points()
 	set_process_input(true)
-	
 
-
-# Solo lanza la caña cuando haces clic sobre la caña
+# 🟢 Solo lanza la caña cuando haces clic sobre la caña
 func _input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.pressed and not is_casting:
 		var item_instance = ITEM_SCENE.instantiate()
