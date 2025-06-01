@@ -12,7 +12,7 @@ scale = Vector2(2, 2)
 script = ExtResource("2_sab4x")
 
 [node name="Wheel" parent="Boat" instance=ExtResource("2_2m212")]
-position = Vector2(7, 10)
+position = Vector2(-167.5, 31)
 
 [connection signal="body_entered" from="Boat/Wheel" to="Boat" method="_on_wheel_body_entered"]
 [connection signal="body_exited" from="Boat/Wheel" to="Boat" method="_on_wheel_body_exited"]

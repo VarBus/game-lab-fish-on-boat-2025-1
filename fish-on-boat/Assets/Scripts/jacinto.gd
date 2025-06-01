@@ -34,10 +34,10 @@ func _physics_process(delta: float) -> void:
 	if not sliding:
 		if Input.is_action_pressed("right"):
 			direction.x += 1
-			animated_sprite_2d.flip_h = false
+			animated_sprite_2d.flip_h = true
 		if Input.is_action_pressed("left"):
 			direction.x -= 1
-			animated_sprite_2d.flip_h = true
+			animated_sprite_2d.flip_h = false
 
 		if direction.x != 0:
 			last_direction = direction.x

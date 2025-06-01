@@ -1,11 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://dpt6y8vhin2y3"]
+[gd_scene load_steps=12 format=3 uid="uid://dpt6y8vhin2y3"]
 
-[ext_resource type="Script" uid="uid://cldcgjeiifwqw" path="res://Assets/Scripts/inventory.gd" id="1_dw5ng"]
+[ext_resource type="Script" uid="uid://cldcgjeiifwqw" path="res://inventory.gd" id="1_dw5ng"]
 [ext_resource type="Texture2D" uid="uid://dbs1pdp8ekybn" path="res://items/inventario_prototipo_.png" id="1_mrqgh"]
 [ext_resource type="Texture2D" uid="uid://cn8v3ulyi25f6" path="res://items/bucket_.png" id="3_0xmy5"]
 [ext_resource type="Texture2D" uid="uid://34nj332lvj1" path="res://items/machete_.png" id="4_qjyhv"]
 [ext_resource type="Texture2D" uid="uid://dllscdhqa0khj" path="res://items/fishing_rod_.png" id="5_dw5ng"]
-[ext_resource type="Script" uid="uid://ds61ijncm0xlr" path="res://Assets/Scripts/fishing_rod_area.gd" id="5_qjyhv"]
+[ext_resource type="Script" uid="uid://ds61ijncm0xlr" path="res://fishing_rod_area.gd" id="5_qjyhv"]
+[ext_resource type="Texture2D" uid="uid://011a4c85n4d3" path="res://UI_Flat_ToggleLeftOff01a.png" id="7_n6lwg"]
+[ext_resource type="Texture2D" uid="uid://cceonra6ylmah" path="res://UI_Flat_ToggleLeftOn01a.png" id="8_006hc"]
+[ext_resource type="FontFile" uid="uid://d0o4ljkrb7msv" path="res://8-BIT WONDER.TTF" id="11_ofler"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ormsd"]
 size = Vector2(48, 43.75)
@@ -58,15 +61,30 @@ shape = SubResource("RectangleShape2D_0xmy5")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="btn_inventory" type="Button" parent="UI"]
-offset_left = 950.0
+[node name="btn_inventory" type="TextureButton" parent="UI"]
+texture_filter = 1
+offset_left = 1039.0
 offset_top = 530.0
-offset_right = 1106.0
-offset_bottom = 608.0
-focus_mode = 0
+offset_right = 1124.0
+offset_bottom = 625.0
+focus_mode = 1
+mouse_default_cursor_shape = 2
 toggle_mode = true
-button_pressed = true
-action_mode = 0
+texture_normal = ExtResource("8_006hc")
+texture_pressed = ExtResource("7_n6lwg")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="UI"]
+offset_left = 1015.0
+offset_top = 511.0
+offset_right = 1151.0
+offset_bottom = 534.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 0
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("11_ofler")
 text = "Inventory"
 
 [connection signal="pressed" from="UI/btn_inventory" to="." method="_on_btn_inventory_pressed"]
