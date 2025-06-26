@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dq0duyjgtcbfx"]
+[gd_scene load_steps=18 format=3 uid="uid://dq0duyjgtcbfx"]
 
 [ext_resource type="Script" uid="uid://chmnf4ifwuuev" path="res://Assets/Scripts/parallax_background.gd" id="1_41i37"]
 [ext_resource type="Texture2D" uid="uid://cxiagrbqkwva3" path="res://Assets/Backgrounds/Mar desde arriba/Ocean_3/1.png" id="2_h550e"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://cvtqrawn07g8e" path="res://Assets/Backgrounds/Mar desde arriba/Ocean_3/3.png" id="4_211ff"]
 [ext_resource type="Texture2D" uid="uid://do65o2cacva6t" path="res://Assets/Backgrounds/Mar desde arriba/Ocean_3/4.png" id="5_00ae1"]
 [ext_resource type="FontFile" uid="uid://ch1q40ic7k076" path="res://Assets/Fonts/04B_30__.TTF" id="6_h550e"]
+[ext_resource type="AudioStream" uid="uid://c0haenfev82dr" path="res://SoundEffects/menu/1.wav" id="7_211ff"]
+[ext_resource type="AudioStream" uid="uid://xd853cpcf7l8" path="res://SoundEffects/menu/seleccion.mp3" id="8_211ff"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7hd7b"]
 
@@ -221,3 +223,10 @@ libraries = {
 &"": SubResource("AnimationLibrary_haapo")
 }
 autoplay = "anybuttonPlay"
+
+[node name="intro" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_211ff")
+autoplay = true
+
+[node name="select_btn" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_211ff")

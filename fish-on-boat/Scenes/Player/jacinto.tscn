@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://b6377mc4hymmv"]
+[gd_scene load_steps=14 format=3 uid="uid://b6377mc4hymmv"]
 
 [ext_resource type="Script" uid="uid://44cd16w1o3up" path="res://Assets/Scripts/jacinto.gd" id="1_sqtdw"]
 [ext_resource type="Texture2D" uid="uid://b8bfuqluqk588" path="res://Assets/Sprites/P_Jacinto/Jacinto_Idle.png" id="2_7vevy"]
 [ext_resource type="PackedScene" uid="uid://dpt6y8vhin2y3" path="res://inventory.tscn" id="3_mr5iv"]
+[ext_resource type="AudioStream" uid="uid://b10l2evmhexog" path="res://SoundEffects/Jacinto_sounds/piso.mp3" id="4_0ucrs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7vevy"]
 atlas = ExtResource("2_7vevy")
@@ -42,6 +43,46 @@ animations = [{
 radius = 16.0
 height = 48.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7vevy"]
+radius = 21.0
+height = 56.0
+
+[sub_resource type="Animation" id="Animation_0ucrs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_7vevy"]
+resource_name = "auch"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0, 0.0117647, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n6nya"]
+_data = {
+&"RESET": SubResource("Animation_0ucrs"),
+&"auch": SubResource("Animation_7vevy")
+}
+
 [node name="Jacinto" type="CharacterBody2D" groups=["Jacinto"]]
 script = ExtResource("1_sqtdw")
 
@@ -76,4 +117,20 @@ position = Vector2(-19, 23)
 [node name="Inventory" parent="UI" instance=ExtResource("3_mr5iv")]
 position = Vector2(579, 215)
 
+[node name="damage" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="damage"]
+position = Vector2(18, 19)
+shape = SubResource("CapsuleShape2D_7vevy")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_n6nya")
+}
+
+[node name="piso" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_0ucrs")
+parameters/looping = true
+
 [connection signal="timeout" from="slide_timer" to="." method="_on_slide_timer_timeout"]
+[connection signal="body_entered" from="damage" to="." method="_on_damage_body_entered"]

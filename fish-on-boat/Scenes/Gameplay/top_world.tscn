@@ -1,16 +1,28 @@
-[gd_scene load_steps=8 format=3 uid="uid://cntvrsrs2eq6t"]
+[gd_scene load_steps=15 format=3 uid="uid://cntvrsrs2eq6t"]
 
+[ext_resource type="Script" uid="uid://cxfaiqq6ga5vh" path="res://Scenes/Gameplay/top_world.gd" id="1_3q0pw"]
 [ext_resource type="Texture2D" uid="uid://cvvjejks5brsk" path="res://bg/day_bg.png" id="1_unyb1"]
 [ext_resource type="PackedScene" uid="uid://b6377mc4hymmv" path="res://Scenes/Player/jacinto.tscn" id="2_vfmnr"]
 [ext_resource type="PackedScene" uid="uid://krwp4m8llfa3" path="res://jacinto_boat_.tscn" id="3_dm1iy"]
+[ext_resource type="PackedScene" uid="uid://djqftceq2xqo1" path="res://Scenes/Gameplay/mar_world.tscn" id="3_r2s4b"]
 [ext_resource type="PackedScene" uid="uid://bon35srfwcqgk" path="res://water_2d.tscn" id="4_ixner"]
 [ext_resource type="Texture2D" uid="uid://dsx0xcf1fndkf" path="res://pause_boton.png" id="5_7hhw8"]
+[ext_resource type="Texture2D" uid="uid://bb4n3d8aont2y" path="res://Assets/Backgrounds/Mar debajo/Underwater Fantasy/PNG/roca_marina.png" id="5_r2s4b"]
 [ext_resource type="Texture2D" uid="uid://bmf8jbkm6e50l" path="res://Jacinto-life.png" id="6_ufblh"]
+[ext_resource type="PackedScene" uid="uid://bma4qvpadxqtm" path="res://node_2d.tscn" id="10_fowwg"]
+[ext_resource type="Script" uid="uid://b20nfknmckf6w" path="res://node_2d.gd" id="11_v7roj"]
+[ext_resource type="PackedScene" uid="uid://b8whg68icfso7" path="res://pause.tscn" id="12_l0l2k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ixner"]
 size = Vector2(468, 20)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ufblh"]
+bg_color = Color(0, 0.803263, 0, 1)
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+
 [node name="Top-world" type="Node2D"]
+script = ExtResource("1_3q0pw")
 
 [node name="bg" type="TextureRect" parent="."]
 offset_left = -7.0
@@ -36,12 +48,33 @@ texture = ExtResource("1_unyb1")
 [node name="Jacinto" parent="." instance=ExtResource("2_vfmnr")]
 position = Vector2(643, -59)
 
+[node name="mar_world" parent="." instance=ExtResource("3_r2s4b")]
+position = Vector2(0, 18)
+
 [node name="Jacinto_boat_" parent="." instance=ExtResource("3_dm1iy")]
 texture_filter = 1
 position = Vector2(81, -216)
 
+[node name="Roca" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-1211.63, 9412.63)
+scale = Vector2(2.15799, 2.11777)
+texture = ExtResource("5_r2s4b")
+
+[node name="Roca2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(2502, 9413)
+scale = Vector2(2.15799, 2.11777)
+texture = ExtResource("5_r2s4b")
+
+[node name="Roca3" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(663.688, 9467.31)
+scale = Vector2(1.63832, 1.60709)
+texture = ExtResource("5_r2s4b")
+
 [node name="Water2D" parent="." instance=ExtResource("4_ixner")]
-position = Vector2(-3, 251)
+position = Vector2(-1661, 251)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -51,14 +84,19 @@ shape = SubResource("RectangleShape2D_ixner")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="pauseButton" type="TextureButton" parent="CanvasLayer"]
+[node name="paused" type="TouchScreenButton" parent="CanvasLayer"]
 texture_filter = 1
-offset_left = 1045.0
-offset_top = 2.0
-offset_right = 1151.0
-offset_bottom = 110.0
 texture_normal = ExtResource("5_7hhw8")
-stretch_mode = 0
+action = "paused"
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+offset_left = 47.0
+offset_top = 32.0
+offset_right = 273.0
+offset_bottom = 59.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_ufblh")
+value = 100.0
+rounded = true
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
 texture_filter = 1
@@ -66,12 +104,15 @@ position = Vector2(35.75, 39.25)
 scale = Vector2(2.26563, 2.42188)
 texture = ExtResource("6_ufblh")
 
-[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
-offset_left = 47.0
-offset_top = 32.0
-offset_right = 273.0
-offset_bottom = 59.0
-min_value = 100.0
-value = 100.0
-rounded = true
-show_percentage = false
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Node2D" parent="UI" instance=ExtResource("10_fowwg")]
+script = ExtResource("11_v7roj")
+
+[node name="UI2" type="CanvasLayer" parent="."]
+
+[node name="Pause" parent="UI2" instance=ExtResource("12_l0l2k")]
+offset_left = -11.0
+offset_top = 54.0
+offset_right = -11.0
+offset_bottom = 54.0

@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 signal camera_following(camera_node)
-
+@onready var progress_bar: ProgressBar = $"../CanvasLayer/ProgressBar"
 var speed = 350
 var jump = -450
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -11,6 +11,8 @@ var last_direction = 1
 var slide_direction = 0
 var in_water = false
 var swim_force = -300 # Fuerza al presionar espacio en agua
+var damage = 20
+var was_moving = false
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var inventory: Node2D = $UI/Inventory
@@ -38,6 +40,13 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_pressed("left"):
 			direction.x -= 1
 			animated_sprite_2d.flip_h = false
+
+		if direction.x != 0 and not $piso.playing:
+			$piso.play()
+			was_moving = true
+		elif direction.x == 0 and was_moving:
+			$piso.stop()
+			was_moving = false
 
 		if direction.x != 0:
 			last_direction = direction.x
@@ -90,3 +99,20 @@ func enter_water():
 func exit_water():
 	in_water = false
 	print("🌊 Jacinto salió del agua.")
+
+
+func _on_damage_body_entered(body: Node2D) -> void:
+	print("Detectado:", body.name)
+	if body.is_in_group("fish"):
+		print("⚠️ Pez detectado: bajando vida")
+		
+		if progress_bar:
+			progress_bar.value -= damage
+			print("💡 Nueva vida:", progress_bar.value)
+
+			if progress_bar.value <= 0:
+				velocity = Vector2.ZERO
+				print("💀 Jacinto ha muerto.")
+
+		$AnimationPlayer.play("auch")
+		body.queue_free()

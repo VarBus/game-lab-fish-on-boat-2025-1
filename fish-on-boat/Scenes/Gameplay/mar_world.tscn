@@ -1,10 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://djqftceq2xqo1"]
+[gd_scene load_steps=3 format=3 uid="uid://djqftceq2xqo1"]
 
+[ext_resource type="Script" uid="uid://cgpfy70p1dxw1" path="res://Scenes/Gameplay/mar_world.gd" id="1_08yk3"]
 [ext_resource type="PackedScene" uid="uid://q4fcs1tjwslq" path="res://Scenes/NPCs/Npc_Fish1.tscn" id="1_12222"]
 
 [node name="mar_world" type="Node2D"]
+script = ExtResource("1_08yk3")
+fish_scene = ExtResource("1_12222")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_12222")]
 position = Vector2(570, 320)
 speed = 200.0
 patrol_distance = 590.0
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
