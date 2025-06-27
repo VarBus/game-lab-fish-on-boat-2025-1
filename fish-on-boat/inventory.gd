@@ -12,7 +12,7 @@ func _ready():
 			child.connect("item_selected", Callable(self, "_on_item_selected"))
 
 func _on_item_selected(item_scene):
-	var instance = item_scene.duplicate()
+	var instance = item_scene.instantiate()
 	emit_signal("give_item_to_jacinto", instance)
 
 

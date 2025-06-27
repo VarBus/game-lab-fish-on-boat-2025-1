@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8mxfudv8pu8g"]
+
+[ext_resource type="Script" uid="uid://vcm5jn7ubvv" path="res://lose_interface.gd" id="1_1r1wi"]
+[ext_resource type="FontFile" uid="uid://d0o4ljkrb7msv" path="res://8-BIT WONDER.TTF" id="2_q0wc1"]
+[ext_resource type="Texture2D" uid="uid://d2cy3wdcbh548" path="res://menu/buttons/boton_1_pausa.png" id="3_tphw3"]
+[ext_resource type="Texture2D" uid="uid://dtpu0kl8h5v56" path="res://menu/buttons/boton_1_pausa3.png" id="4_vskp5"]
+
+[node name="LoseInterface" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1r1wi")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.172549, 0, 0.576471)
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 214.0
+offset_top = 172.0
+offset_right = 968.0
+offset_bottom = 233.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 25
+theme_override_fonts/font = ExtResource("2_q0wc1")
+theme_override_font_sizes/font_size = 45
+text = "Perdiste el juego :("
+
+[node name="reanudar" type="TextureButton" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 437.0
+offset_top = 253.0
+offset_right = 720.0
+offset_bottom = 387.0
+texture_normal = ExtResource("3_tphw3")
+stretch_mode = 6
+
+[node name="noob" type="TextureButton" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 435.0
+offset_top = 389.0
+offset_right = 727.0
+offset_bottom = 514.0
+texture_normal = ExtResource("4_vskp5")
+stretch_mode = 6
+
+[connection signal="pressed" from="reanudar" to="." method="_on_reanudar_pressed"]
+[connection signal="pressed" from="noob" to="." method="_on_noob_pressed"]

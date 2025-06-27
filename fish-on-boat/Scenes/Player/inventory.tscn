@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dpt6y8vhin2y3"]
+[gd_scene load_steps=13 format=3 uid="uid://dpt6y8vhin2y3"]
 
 [ext_resource type="Script" uid="uid://cldcgjeiifwqw" path="res://inventory.gd" id="1_dw5ng"]
 [ext_resource type="Texture2D" uid="uid://dbs1pdp8ekybn" path="res://items/inventario_prototipo_.png" id="1_mrqgh"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://34nj332lvj1" path="res://items/machete_.png" id="4_qjyhv"]
 [ext_resource type="Texture2D" uid="uid://dllscdhqa0khj" path="res://items/fishing_rod_.png" id="5_dw5ng"]
 [ext_resource type="Script" uid="uid://ds61ijncm0xlr" path="res://fishing_rod_area.gd" id="5_qjyhv"]
+[ext_resource type="PackedScene" uid="uid://dyil5c772pfst" path="res://Scenes/Herramientas/fishing_rod.tscn" id="6_imbbg"]
 [ext_resource type="Texture2D" uid="uid://011a4c85n4d3" path="res://UI_Flat_ToggleLeftOff01a.png" id="7_n6lwg"]
 [ext_resource type="Texture2D" uid="uid://cceonra6ylmah" path="res://UI_Flat_ToggleLeftOn01a.png" id="8_006hc"]
 [ext_resource type="FontFile" uid="uid://d0o4ljkrb7msv" path="res://8-BIT WONDER.TTF" id="11_ofler"]
@@ -48,6 +49,7 @@ shape = SubResource("RectangleShape2D_ormsd")
 
 [node name="FishingRodArea" type="Area2D" parent="."]
 script = ExtResource("5_qjyhv")
+item_scene = ExtResource("6_imbbg")
 
 [node name="Sprite2D" type="Sprite2D" parent="FishingRodArea"]
 position = Vector2(-124, -74)

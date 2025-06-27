@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://44cd16w1o3up" path="res://Assets/Scripts/jacinto.gd" id="1_sqtdw"]
 [ext_resource type="Texture2D" uid="uid://b8bfuqluqk588" path="res://Assets/Sprites/P_Jacinto/Jacinto_Idle.png" id="2_7vevy"]
-[ext_resource type="PackedScene" uid="uid://dpt6y8vhin2y3" path="res://inventory.tscn" id="3_mr5iv"]
+[ext_resource type="PackedScene" uid="uid://dpt6y8vhin2y3" path="res://Scenes/Player/inventory.tscn" id="3_mr5iv"]
 [ext_resource type="AudioStream" uid="uid://b10l2evmhexog" path="res://SoundEffects/Jacinto_sounds/piso.mp3" id="4_0ucrs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7vevy"]
@@ -115,7 +115,7 @@ position = Vector2(-19, 23)
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Inventory" parent="UI" instance=ExtResource("3_mr5iv")]
-position = Vector2(579, 215)
+position = Vector2(575, 285)
 
 [node name="damage" type="Area2D" parent="."]
 

@@ -13,6 +13,8 @@ var in_water = false
 var swim_force = -300 # Fuerza al presionar espacio en agua
 var damage = 20
 var was_moving = false
+@onready var animation_player: AnimationPlayer = $"../AnimationPlayer"
+@onready var lose_interface: Control = $"../UI3/LoseInterface"
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var inventory: Node2D = $UI/Inventory
@@ -88,7 +90,7 @@ func _receive_item(item_instance):
 		item_instance.connect_to_jacinto(self)
 
 	emit_signal("camera_following", camera_2d)
-	print("🎣 Item recibido: ", item_instance.name)
+	print("✅ Recibido en mano: ", item_instance.name)
 
 # ==== Métodos llamados desde el área de agua ====
 
@@ -111,6 +113,7 @@ func _on_damage_body_entered(body: Node2D) -> void:
 			print("💡 Nueva vida:", progress_bar.value)
 
 			if progress_bar.value <= 0:
+				$"../AnimationPlayer".play("lose")
 				velocity = Vector2.ZERO
 				print("💀 Jacinto ha muerto.")
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dyil5c772pfst"]
 
-[ext_resource type="Script" uid="uid://brsnpx28xc2gn" path="res://Assets/Scripts/fishing_rod.gd" id="1_t02qk"]
+[ext_resource type="Script" uid="uid://brsnpx28xc2gn" path="res://fishing_rod.gd" id="1_t02qk"]
 [ext_resource type="Texture2D" uid="uid://dllscdhqa0khj" path="res://items/fishing_rod_.png" id="2_m7wbm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uokpy"]

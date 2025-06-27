@@ -1,14 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dhsos1v8t6x4g"]
+[gd_scene load_steps=6 format=3 uid="uid://dhsos1v8t6x4g"]
 
 [ext_resource type="Script" uid="uid://cfuraurkp1pqt" path="res://Assets/Scripts/menu.gd" id="1_1rerr"]
 [ext_resource type="Texture2D" uid="uid://0ftc5vy4lm1m" path="res://Assets/Backgrounds/Mar debajo/Underwater Fantasy/PNG/layers/far.png" id="2_158mb"]
 [ext_resource type="Script" path="res://Assets/Scripts/parallax_background_menu2.gd" id="2_wwsa2"]
 [ext_resource type="Texture2D" uid="uid://c0vvqi5bgpfmt" path="res://Assets/Backgrounds/Mar debajo/Underwater Fantasy/PNG/layers/sand.png" id="3_wwsa2"]
 [ext_resource type="Texture2D" uid="uid://cwm1qt4kyioit" path="res://Assets/Backgrounds/Mar debajo/Underwater Fantasy/PNG/layers/foregound-merged.png" id="4_jsrd8"]
-[ext_resource type="Texture2D" uid="uid://d2cy3wdcbh548" path="res://menu/buttons/boton_1_pausa.png" id="6_6e8w0"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3cgja"]
-texture = ExtResource("6_6e8w0")
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -72,7 +68,6 @@ offset_bottom = 218.0
 [node name="B_Minigames" type="Button" parent="Container_Minigames"]
 custom_minimum_size = Vector2(256, 136)
 layout_mode = 2
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_3cgja")
 text = "MINIGAMES
 "
 

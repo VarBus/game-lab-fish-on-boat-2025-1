@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cntvrsrs2eq6t"]
+[gd_scene load_steps=26 format=3 uid="uid://cntvrsrs2eq6t"]
 
 [ext_resource type="Script" uid="uid://cxfaiqq6ga5vh" path="res://Scenes/Gameplay/top_world.gd" id="1_3q0pw"]
 [ext_resource type="Texture2D" uid="uid://cvvjejks5brsk" path="res://bg/day_bg.png" id="1_unyb1"]
@@ -8,10 +8,14 @@
 [ext_resource type="PackedScene" uid="uid://bon35srfwcqgk" path="res://water_2d.tscn" id="4_ixner"]
 [ext_resource type="Texture2D" uid="uid://dsx0xcf1fndkf" path="res://pause_boton.png" id="5_7hhw8"]
 [ext_resource type="Texture2D" uid="uid://bb4n3d8aont2y" path="res://Assets/Backgrounds/Mar debajo/Underwater Fantasy/PNG/roca_marina.png" id="5_r2s4b"]
+[ext_resource type="Texture2D" uid="uid://drlaip2d76uvw" path="res://menu/buttons/log book (1).png" id="6_3i6sq"]
 [ext_resource type="Texture2D" uid="uid://bmf8jbkm6e50l" path="res://Jacinto-life.png" id="6_ufblh"]
+[ext_resource type="FontFile" uid="uid://d0o4ljkrb7msv" path="res://8-BIT WONDER.TTF" id="7_24edd"]
 [ext_resource type="PackedScene" uid="uid://bma4qvpadxqtm" path="res://node_2d.tscn" id="10_fowwg"]
 [ext_resource type="Script" uid="uid://b20nfknmckf6w" path="res://node_2d.gd" id="11_v7roj"]
 [ext_resource type="PackedScene" uid="uid://b8whg68icfso7" path="res://pause.tscn" id="12_l0l2k"]
+[ext_resource type="PackedScene" uid="uid://b8mxfudv8pu8g" path="res://lose_interface.tscn" id="13_v7roj"]
+[ext_resource type="Texture2D" uid="uid://bkif6r6woum8u" path="res://menu/items/options_bar_1_version.png" id="15_24edd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ixner"]
 size = Vector2(468, 20)
@@ -20,6 +24,104 @@ size = Vector2(468, 20)
 bg_color = Color(0, 0.803263, 0, 1)
 corner_radius_top_right = 30
 corner_radius_bottom_right = 30
+
+[sub_resource type="Animation" id="Animation_l0l2k"]
+resource_name = "lose"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/LoseInterface:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3i6sq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/LoseInterface:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/pergamino:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Label:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_kgh1u"]
+resource_name = "task"
+length = 0.34
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/pergamino:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Label:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_24edd"]
+_data = {
+&"RESET": SubResource("Animation_3i6sq"),
+&"lose": SubResource("Animation_l0l2k"),
+&"task": SubResource("Animation_kgh1u")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v7roj"]
+size = Vector2(170, 11156)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l0l2k"]
+size = Vector2(139.5, 11106)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3i6sq"]
+size = Vector2(3342.5, 1504.5)
 
 [node name="Top-world" type="Node2D"]
 script = ExtResource("1_3q0pw")
@@ -45,8 +147,38 @@ offset_right = 2486.0
 offset_bottom = 291.0
 texture = ExtResource("1_unyb1")
 
-[node name="Jacinto" parent="." instance=ExtResource("2_vfmnr")]
-position = Vector2(643, -59)
+[node name="UI" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Node2D" parent="UI" instance=ExtResource("10_fowwg")]
+script = ExtResource("11_v7roj")
+
+[node name="LoseInterface" parent="UI" instance=ExtResource("13_v7roj")]
+modulate = Color(1, 1, 1, 0)
+offset_bottom = 4.0
+
+[node name="log_book" type="TextureButton" parent="UI"]
+offset_left = 1015.0
+offset_top = 226.0
+offset_right = 1487.0
+offset_bottom = 698.0
+scale = Vector2(0.3, 0.3)
+focus_mode = 0
+texture_normal = ExtResource("6_3i6sq")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="UI"]
+texture_filter = 1
+offset_left = 1036.0
+offset_top = 218.0
+offset_right = 1138.0
+offset_bottom = 241.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+theme_override_fonts/font = ExtResource("7_24edd")
+theme_override_font_sizes/font_size = 17
+text = "Tasks"
 
 [node name="mar_world" parent="." instance=ExtResource("3_r2s4b")]
 position = Vector2(0, 18)
@@ -76,6 +208,9 @@ texture = ExtResource("5_r2s4b")
 [node name="Water2D" parent="." instance=ExtResource("4_ixner")]
 position = Vector2(-1661, 251)
 
+[node name="Jacinto" parent="." instance=ExtResource("2_vfmnr")]
+position = Vector2(643, -59)
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
@@ -86,6 +221,8 @@ shape = SubResource("RectangleShape2D_ixner")
 
 [node name="paused" type="TouchScreenButton" parent="CanvasLayer"]
 texture_filter = 1
+position = Vector2(1075, 0)
+scale = Vector2(2.40625, 2.34375)
 texture_normal = ExtResource("5_7hhw8")
 action = "paused"
 
@@ -97,6 +234,7 @@ offset_bottom = 59.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_ufblh")
 value = 100.0
 rounded = true
+show_percentage = false
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
 texture_filter = 1
@@ -104,15 +242,56 @@ position = Vector2(35.75, 39.25)
 scale = Vector2(2.26563, 2.42188)
 texture = ExtResource("6_ufblh")
 
-[node name="UI" type="CanvasLayer" parent="."]
+[node name="pergamino" type="Sprite2D" parent="CanvasLayer"]
+visible = false
+position = Vector2(599, 280)
+scale = Vector2(6.82813, 7.0875)
+texture = ExtResource("15_24edd")
 
-[node name="Node2D" parent="UI" instance=ExtResource("10_fowwg")]
-script = ExtResource("11_v7roj")
+[node name="Label" type="Label" parent="CanvasLayer"]
+visible = false
+offset_left = 465.0
+offset_top = 108.0
+offset_right = 735.0
+offset_bottom = 153.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 20
+theme_override_fonts/font = ExtResource("7_24edd")
+theme_override_font_sizes/font_size = 30
+text = "Tareas"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="UI2" type="CanvasLayer" parent="."]
 
 [node name="Pause" parent="UI2" instance=ExtResource("12_l0l2k")]
 offset_left = -11.0
-offset_top = 54.0
-offset_right = -11.0
-offset_bottom = 54.0
+offset_top = 2.0
+offset_right = 0.0
+offset_bottom = 2.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_24edd")
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-1176, 5160)
+shape = SubResource("RectangleShape2D_v7roj")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(2288.25, 5153)
+shape = SubResource("RectangleShape2D_l0l2k")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(558.75, 8980.25)
+shape = SubResource("RectangleShape2D_3i6sq")
+
+[connection signal="pressed" from="UI/log_book" to="." method="_on_log_book_pressed"]
