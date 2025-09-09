@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=3 uid="uid://dpt6y8vhin2y3"]
+
+[ext_resource type="Script" uid="uid://cldcgjeiifwqw" path="res://Assets/Scripts/inventory.gd" id="1_dw5ng"]
+[ext_resource type="Texture2D" uid="uid://dbs1pdp8ekybn" path="res://items/inventario_prototipo_.png" id="1_mrqgh"]
+[ext_resource type="Texture2D" uid="uid://cn8v3ulyi25f6" path="res://items/bucket_.png" id="3_0xmy5"]
+[ext_resource type="Texture2D" uid="uid://34nj332lvj1" path="res://items/machete_.png" id="4_qjyhv"]
+[ext_resource type="Texture2D" uid="uid://dllscdhqa0khj" path="res://items/fishing_rod_.png" id="5_dw5ng"]
+[ext_resource type="Script" uid="uid://ds61ijncm0xlr" path="res://Assets/Scripts/fishing_rod_area.gd" id="5_qjyhv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ormsd"]
+size = Vector2(48, 43.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xmy5"]
+size = Vector2(44, 42)
+
+[node name="Inventory" type="Node2D"]
+script = ExtResource("1_dw5ng")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_mrqgh")
+
+[node name="vaul" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="vaul"]
+texture_filter = 1
+position = Vector2(-59, -72)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_0xmy5")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="vaul"]
+position = Vector2(-60, -74)
+shape = SubResource("RectangleShape2D_ormsd")
+
+[node name="Machete" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Machete"]
+position = Vector2(2, -71)
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("4_qjyhv")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Machete"]
+position = Vector2(0, -73)
+shape = SubResource("RectangleShape2D_ormsd")
+
+[node name="FishingRodArea" type="Area2D" parent="."]
+script = ExtResource("5_qjyhv")
+
+[node name="Sprite2D" type="Sprite2D" parent="FishingRodArea"]
+position = Vector2(-124, -74)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_dw5ng")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FishingRodArea"]
+position = Vector2(-121, -74)
+shape = SubResource("RectangleShape2D_0xmy5")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="btn_inventory" type="Button" parent="UI"]
+offset_left = 950.0
+offset_top = 530.0
+offset_right = 1106.0
+offset_bottom = 608.0
+focus_mode = 0
+toggle_mode = true
+button_pressed = true
+action_mode = 0
+text = "Inventory"
+
+[connection signal="pressed" from="UI/btn_inventory" to="." method="_on_btn_inventory_pressed"]

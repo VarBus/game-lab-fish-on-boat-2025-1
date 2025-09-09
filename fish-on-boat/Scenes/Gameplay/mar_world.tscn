@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://djqftceq2xqo1"]
+
+[ext_resource type="PackedScene" uid="uid://q4fcs1tjwslq" path="res://Scenes/NPCs/Npc_Fish1.tscn" id="1_12222"]
+
+[node name="mar_world" type="Node2D"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_12222")]
+position = Vector2(570, 320)
+speed = 200.0
+patrol_distance = 590.0

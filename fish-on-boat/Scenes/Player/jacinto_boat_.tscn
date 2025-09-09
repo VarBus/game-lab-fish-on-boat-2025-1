@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://krwp4m8llfa3"]
+
+[ext_resource type="PackedScene" uid="uid://2jghi522qbop" path="res://Scenes/Barco/boat.tscn" id="1_n0hwr"]
+[ext_resource type="PackedScene" uid="uid://6u7xthmh6sre" path="res://Scenes/Barco/wheel.tscn" id="2_2m212"]
+[ext_resource type="Script" uid="uid://b51t1b0r8sox8" path="res://Assets/Scripts/boat.gd" id="2_sab4x"]
+
+[node name="Jacinto_boat_" type="Node2D"]
+
+[node name="Boat" parent="." instance=ExtResource("1_n0hwr")]
+position = Vector2(595, 317)
+scale = Vector2(2, 2)
+script = ExtResource("2_sab4x")
+
+[node name="Wheel" parent="Boat" instance=ExtResource("2_2m212")]
+position = Vector2(7, 10)
+
+[connection signal="body_entered" from="Boat/Wheel" to="Boat" method="_on_wheel_body_entered"]
+[connection signal="body_exited" from="Boat/Wheel" to="Boat" method="_on_wheel_body_exited"]

@@ -1,0 +1,126 @@
+[gd_scene load_steps=6 format=3 uid="uid://dhsos1v8t6x4g"]
+
+[ext_resource type="Script" uid="uid://cfuraurkp1pqt" path="res://Assets/Scripts/menu.gd" id="1_1rerr"]
+[ext_resource type="Texture2D" uid="uid://0ftc5vy4lm1m" path="res://Assets/Backgrounds/Mar debajo/Underwater Fantasy/PNG/layers/far.png" id="2_158mb"]
+[ext_resource type="Script" uid="uid://crur7mjwdd61o" path="res://Assets/Scripts/parallax_background_menu2.gd" id="2_wwsa2"]
+[ext_resource type="Texture2D" uid="uid://c0vvqi5bgpfmt" path="res://Assets/Backgrounds/Mar debajo/Underwater Fantasy/PNG/layers/sand.png" id="3_wwsa2"]
+[ext_resource type="Texture2D" uid="uid://cwm1qt4kyioit" path="res://Assets/Backgrounds/Mar debajo/Underwater Fantasy/PNG/layers/foregound-merged.png" id="4_jsrd8"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1rerr")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource("2_wwsa2")
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground"]
+position = Vector2(575.5, 325.5)
+scale = Vector2(4.51172, 3.39062)
+texture = ExtResource("2_158mb")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(572, 410.5)
+scale = Vector2(4.53125, 2.55729)
+texture = ExtResource("3_wwsa2")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(567.5, 475)
+scale = Vector2(2.2793, 1.85417)
+texture = ExtResource("4_jsrd8")
+
+[node name="Container_principal" type="BoxContainer" parent="."]
+layout_mode = 0
+offset_left = 381.0
+offset_top = 61.0
+offset_right = 1143.0
+offset_bottom = 579.0
+
+[node name="ContainerPlay" type="BoxContainer" parent="."]
+layout_mode = 2
+offset_left = 453.0
+offset_top = 85.0
+offset_right = 702.0
+offset_bottom = 221.0
+
+[node name="B_Play" type="Button" parent="ContainerPlay"]
+custom_minimum_size = Vector2(256, 136)
+layout_mode = 2
+text = "START"
+
+[node name="Container_Minigames" type="BoxContainer" parent="."]
+layout_mode = 2
+offset_left = 745.0
+offset_top = 82.0
+offset_right = 1001.0
+offset_bottom = 218.0
+
+[node name="B_Minigames" type="Button" parent="Container_Minigames"]
+custom_minimum_size = Vector2(256, 136)
+layout_mode = 2
+text = "MINIGAMES
+"
+
+[node name="Container_Options" type="BoxContainer" parent="."]
+layout_mode = 2
+offset_left = 475.0
+offset_top = 261.0
+offset_right = 694.0
+offset_bottom = 359.0
+
+[node name="B_Options" type="Button" parent="Container_Options"]
+custom_minimum_size = Vector2(219, 98)
+layout_mode = 2
+text = "OPTIONS
+"
+
+[node name="Container_Store" type="BoxContainer" parent="."]
+layout_mode = 2
+offset_left = 763.0
+offset_top = 260.0
+offset_right = 982.0
+offset_bottom = 358.0
+
+[node name="B_Store" type="Button" parent="Container_Store"]
+custom_minimum_size = Vector2(219, 98)
+layout_mode = 2
+text = "STORE
+"
+
+[node name="Container_Credits" type="BoxContainer" parent="."]
+layout_mode = 0
+offset_left = 468.0
+offset_top = 419.0
+offset_right = 714.0
+offset_bottom = 494.0
+
+[node name="B_Credits" type="Button" parent="Container_Credits"]
+custom_minimum_size = Vector2(246, 75)
+layout_mode = 2
+text = "CREDITS
+"
+
+[node name="Container_Exit" type="BoxContainer" parent="."]
+layout_mode = 2
+offset_left = 744.0
+offset_top = 418.0
+offset_right = 990.0
+offset_bottom = 493.0
+
+[node name="B_Exit" type="Button" parent="Container_Exit"]
+custom_minimum_size = Vector2(246, 75)
+layout_mode = 2
+text = "EXIT
+"
+
+[connection signal="pressed" from="ContainerPlay/B_Play" to="." method="_on_b_play_pressed"]
